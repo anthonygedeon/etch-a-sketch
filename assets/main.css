@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --font-color: #ecf0f1;
+}
+
+/* might cause problems with the grid */
+body,html {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25rem;
+    height: 25rem;
+    background: var(--primary-color);
+    color: var(--font-color);
+
+}
