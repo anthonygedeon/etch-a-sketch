@@ -24,3 +24,18 @@ body,html {
     color: var(--font-color);
 
 }
+
+.containerGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--primary-color);
+    width: 500px;
+    height: 500px;
+}
+
+.containerGrid div {
+    border: 1px solid white;
+    width: 20px;
+    height: 20px;
+}
