@@ -28,6 +28,16 @@ body,html {
     margin-bottom: 5em;
 }
 
+.containerGrid {
+
+}
+.grid {
+    height: 10px;
+    width: 10px;
+    border-radius: 3px;
+    border: 1px solid var(--font-color);
+}
+
 button,input{
     background-color: transparent;
     padding: .5em;
