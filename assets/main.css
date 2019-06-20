@@ -1,43 +1,54 @@
 * {
     margin: 0;
     padding: 0;
+    outline: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--font-color);
 }
 
 :root {
-    --primary-color: #2c3e50;
-    --font-color: #ecf0f1;
+    --linear-color1: #e66465;
+    --linear-color2: #9198e5;
+    --font-color: #ffffff;
+    --black-color: #000000;
 }
 
-/* might cause problems with the grid */
 body,html {
-    display: flex;
-    justify-content: center;
+    background: linear-gradient(190deg, var(--linear-color1),var(--linear-color2));
+    height: 100vh;
 }
 
-.wrapper {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25rem;
-    height: 25rem;
-    background: var(--primary-color);
-    color: var(--font-color);
-
 }
 
-.containerGrid {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    background-color: var(--primary-color);
-    width: 500px;
-    height: 500px;
-
+.title header h1 {
+    margin-bottom: 5em;
 }
 
-.containerGrid div {
-    border: 1px solid rgb(255, 0, 0);
-    width: 40px;
-    height: 40px;
+button,input{
+    background-color: transparent;
+    padding: .5em;
+    border: 1px solid var(--font-color);
+    border-radius: 3px;
+    transition: 1s all ease;
 }
+
+button:hover,
+input:hover {
+    background-color: var(--font-color);
+    color: var(--black-color);
+}
+
+button:focus,
+input:focus {
+    background-color: white;
+    color: var(--black-color);
+}
+
+
+
+
+

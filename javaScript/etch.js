@@ -5,11 +5,3 @@
 */
 
 /*-- ------------------------- Creating grid ---------------------------*/
-const $containerGrid = $(".containerGrid");
-
-for (let i = 0; i < 100; i++) {
-    const $div = $("<div></div>");
-    $($containerGrid).append($div);
-}
-
-

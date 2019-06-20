@@ -9,32 +9,25 @@
 </head>
 <body>
     <!-- ------------------------- How to Play --------------------------->
-    <!-- <div class="wrapper">
-        <header>
-            <h1 id="heading">Welcome to my fabulous etch-a-sketch web-app.</h1>
-        </header>
-        <div class="howToPlay">
-            <p>Draw by holding down <span class="keyPressed" data-key="x">x</span>.</p>
-            <p>Select a different color by holding down <span  class="keyPressed" data-key="c">c</span>, hover over the color of your choice and release <span class="keyPressed">c</span>.</p>
-            <p>Toggle pen transpanecy with <span class="keyPressed" data-key="z"> z</span></p>
-            <p>If you wish to see this window again, press <span class="keyPressed" data-key="h">h</span>.</p>
-            <p>toggle special hue with <span class="keyPressed" data-key="v">v</span> (feature only works with transparency enabled)</p>
-            <p>If you wish to change the resolution of the canvas, enter a number between 2 and 100 in the field below and click <span class="keyPressed">reset</span>.</p>
-            <div class="sizeGrid">
-                <input type="text">
-                <button type="submit" class="gridKeys">Go</button>
-                <button type="submit" class="gridKeys">Reset</button>
-            </div>
+    <div class="container">
+        <div class="title">
+            <header>
+                <h1>Etch a Sketch</h1>
+            </header>
         </div>
-    </div> -->
-    <!-- ------------------------- Grid --------------------------->
-    <div class="containerGrid">
-        <!-- injected by javaScript -->
-        
+        <!-- ------------------------- Grid --------------------------->
+        <section>
+            <div class="Grid">
+                <!-- injected by javaScript -->
+            </div>
+            <div class="options">
+                <input type="number" id="gridLength" value="16" min="1" max="64">
+                <button type="submit" id="gradient">Gradient</button>
+                <button type="submit" active="true" id="random">Random</button>
+                <button type="reset" id="reset">Reset</button>
+            </div>
+        </section>
     </div>
-
-    <!-- ------------------------- Special Hue --------------------------->
-
     <!-- ------------------------- Scripts --------------------------->
     <script src="javaScript/jquery-3.4.1.min.js"></script>
     <script src="javaScript/etch.js"></script>
