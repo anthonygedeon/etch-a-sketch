@@ -5,16 +5,30 @@
 */
 
 /*-- ------------------------- Variables ---------------------------*/
+const $containerGrid = $(".containerGrid");
 const $gridLength = $("#gridLength");
 
 const $gradientButton = $("#gradient");
 const $random = $("#random");
 const $reset = $("#reset");
 
-function gridCreation() {
-    for (let i = 0; i < $gridLength.val(); i++) {
-        const $grid = $("containerGrid");
-        $grid.append()
+const boxNumber = 16;
 
+function 
+
+function createCell() {
+        const $cell = $('<div class="cell"></div>');
+        $cell.css("height", $containerGrid.offsetWidth / boxNumber); 
+        $cell.css("width", $containerGrid.offsetWidth / boxNumber );
+        $cell.css("opacity", "0.1");
+        $containerGrid.append($cell);
+}
+
+function loopCells() {
+    for (let i = 0; i < $gridLength.val() * $gridLength.val(); i++) {
+        createCell();
     }
 }
+
+loopCells();
+

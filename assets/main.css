@@ -25,17 +25,25 @@ body,html {
 }
 
 .title header h1 {
-    margin-bottom: 5em;
+    margin: 1em 0em 1em 0;
 }
 
 .containerGrid {
-
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-bottom: 2em;
 }
-.grid {
-    height: 10px;
-    width: 10px;
+.cell {
+    height: 15px;
+    width: 15px;
     border-radius: 3px;
     border: 1px solid var(--font-color);
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
 }
 
 button,input{
@@ -54,7 +62,7 @@ input:hover {
 
 button:focus,
 input:focus {
-    background-color: white;
+    background-color: var(--font-color);
     color: var(--black-color);
 }
 
