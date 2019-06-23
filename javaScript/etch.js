@@ -12,25 +12,20 @@ const $gradientButton = $("#gradient");
 const $randomButton = $("#random");
 const $resetButton = $("#reset");
 
-const boxNumber = 16;
-
 let buttonActivated;
 
 /*-- ------------------------- Buttons & inputs ---------------------------*/
-$gridLength.on("input", (event) => {
-
-});
-
+$gridLength.on("input", (event) => {});
 $gradientButton.on("click", getGradient);
-
 $randomButton.on("click", getRandomColors);
-
 $resetButton.on("click", reset);
 
 /*--------------------------- Corresponding to Event listeners ---------------------------*/
-
-function getGradient(event) {
-
+function getGradient() {
+    let opacity = 0.1;
+    $(".cell").hover((event) => {
+            $(event.target).css({"opacity": `${opacity += 0.1}`, "backgroundColor": "#f5f5f5"})
+    });
 }
 
 function setRandomColors() {
