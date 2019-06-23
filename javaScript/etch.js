@@ -6,29 +6,64 @@
 
 /*-- ------------------------- Variables ---------------------------*/
 const $containerGrid = $(".containerGrid");
-const $gridLength = $("#gridLength");
 
+const $gridLength = $("#gridLength");
 const $gradientButton = $("#gradient");
-const $random = $("#random");
-const $reset = $("#reset");
+const $randomButton = $("#random");
+const $resetButton = $("#reset");
 
 const boxNumber = 16;
 
-function 
+let buttonActivated;
 
-function createCell() {
-        const $cell = $('<div class="cell"></div>');
-        $cell.css("height", $containerGrid.offsetWidth / boxNumber); 
-        $cell.css("width", $containerGrid.offsetWidth / boxNumber );
-        $cell.css("opacity", "0.1");
-        $containerGrid.append($cell);
+/*-- ------------------------- Buttons & inputs ---------------------------*/
+$gridLength.on("input", (event) => {
+
+});
+
+$gradientButton.on("click", getGradient);
+
+$randomButton.on("click", getRandomColors);
+
+$resetButton.on("click", reset);
+
+/*--------------------------- Corresponding to Event listeners ---------------------------*/
+
+function getGradient(event) {
+
 }
 
-function loopCells() {
+function setRandomColors() {
+    return Math.floor((Math.random() * 256));
+}
+
+function getRandomColors() {
+    $(".cell").hover((event) => {
+        $(event.target).css({ 
+                            "backgroundColor": `rgb(${setRandomColors()}, ${setRandomColors()}, ${setRandomColors()})`, 
+                            "opacity": "1" })
+    });
+}
+
+function reset() {
+    $(".cell").css({
+                    "opacity": "0.1",
+                    "border": "0.5px solid black",
+                    "backgroundColor": "transparent"});
+}
+
+/*-- ------------------------- Creates the Grid ---------------------------*/
+function main() {
     for (let i = 0; i < $gridLength.val() * $gridLength.val(); i++) {
         createCell();
     }
 }
 
-loopCells();
+function createCell() {
+    const $cell = $('<div class="cell"></div>');
+    $cell.css("opacity", "0.1");
+    $containerGrid.append($cell);
+}
+
+main();
 

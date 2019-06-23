@@ -31,14 +31,15 @@ body,html {
 .containerGrid {
     display: flex;
     flex-wrap: wrap;
-    
+    max-width: 270px;
+    max-height: 270px;
     margin-bottom: 2em;
 }
 .cell {
     height: 15px;
     width: 15px;
     border-radius: 3px;
-    border: 1px solid var(--font-color);
+    border: 0.5px solid var(--black-color);
 }
 
 .options {
