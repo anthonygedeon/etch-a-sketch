@@ -4,27 +4,43 @@
 *   Etch-a-Sketch 
 */
 
-/*-- ------------------------- Variables ---------------------------*/
+/*--------------------------- 
+        Variables 
+---------------------------*/
 const $containerGrid = $(".containerGrid");
+const boxSide = 16;
 
 const $gridLength = $("#gridLength");
 const $gradientButton = $("#gradient");
 const $randomButton = $("#random");
 const $resetButton = $("#reset");
 
-let buttonActivated;
-
-/*-- ------------------------- Buttons & inputs ---------------------------*/
-$gridLength.on("input", (event) => {});
-$gradientButton.on("click", getGradient);
+/*-- ------------------------- 
+        Buttons & inputs 
+---------------------------*/
+$gridLength.on("input", gridLength);
+$gradientButton.on("click", incrementOpacity);
 $randomButton.on("click", getRandomColors);
 $resetButton.on("click", reset);
 
-/*--------------------------- Corresponding to Event listeners ---------------------------*/
-function getGradient() {
-    let opacity = 0.1;
-    $(".cell").hover((event) => {
-            $(event.target).css({"opacity": `${opacity += 0.1}`, "backgroundColor": "#f5f5f5"})
+/*--------------------------- 
+Corresponding to Event listeners 
+---------------------------*/
+function gridLength() {
+    if ($gridLength.val() !== 16) {
+        
+    }
+}
+
+function incrementOpacity() {
+    $(".cell").off("mouseenter");
+    $(".cell").mouseenter((event) => {
+        let opacity = parseFloat(event.target.style.opacity);
+        if (opacity <= 0.9) {
+            $(event.target).css({
+                                "opacity": `${opacity + 0.1}`,
+                                "backgroundColor": "#f5f5f5"});
+        }
     });
 }
 
@@ -33,7 +49,8 @@ function setRandomColors() {
 }
 
 function getRandomColors() {
-    $(".cell").hover((event) => {
+    $(".cell").off("mouseenter");
+    $(".cell").mouseenter((event) => {
         $(event.target).css({ 
                             "backgroundColor": `rgb(${setRandomColors()}, ${setRandomColors()}, ${setRandomColors()})`, 
                             "opacity": "1" })
@@ -47,9 +64,11 @@ function reset() {
                     "backgroundColor": "transparent"});
 }
 
-/*-- ------------------------- Creates the Grid ---------------------------*/
+/*-- ------------------------- 
+        Creates the Grid 
+------------------------------*/
 function main() {
-    for (let i = 0; i < $gridLength.val() * $gridLength.val(); i++) {
+    for (let i = 0; i < boxSide * boxSide; i++) {
         createCell();
     }
 }
