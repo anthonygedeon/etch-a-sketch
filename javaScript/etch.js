@@ -8,7 +8,7 @@
         Variables 
 ---------------------------*/
 const $containerGrid = $(".containerGrid");
-const boxSide = 16;
+let boxSide = 16;
 
 const $gridLength = $("#gridLength");
 const $gradientButton = $("#gradient");
@@ -27,8 +27,8 @@ $resetButton.on("click", reset);
 Corresponding to Event listeners 
 ---------------------------*/
 function gridLength() {
-    if ($gridLength.val() !== 16) {
-        
+    if (event.target.value !== 16) {
+        reset(event.target.value);
     }
 }
 
@@ -57,7 +57,9 @@ function getRandomColors() {
     });
 }
 
-function reset() {
+function reset(length) {
+    boxSide = length;
+    main();
     $(".cell").css({
                     "opacity": "0.1",
                     "border": "0.5px solid black",
@@ -68,7 +70,8 @@ function reset() {
         Creates the Grid 
 ------------------------------*/
 function main() {
-    for (let i = 0; i < boxSide * boxSide; i++) {
+    $($containerGrid).empty();
+    for (let i = 0; i < Math.pow(boxSide, 2); i++) {
         createCell();
     }
 }
@@ -80,4 +83,3 @@ function createCell() {
 }
 
 main();
-
