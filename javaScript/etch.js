@@ -52,7 +52,7 @@ function getRandomColors() {
     $(".cell").off("mouseenter");
     $(".cell").mouseenter((event) => {
         $(event.target).css({ 
-                            "backgroundColor": `rgb(${setRandomColors()}, ${setRandomColors()}, ${setRandomColors()})`, 
+                            "backgroundColor": `rgb(${setRandomColors()}, ${setRandomColors()lors()}, ${setRandomColors()})`, 
                             "opacity": "1" })
     });
 }
@@ -71,8 +71,12 @@ function reset(length) {
 ------------------------------*/
 function main() {
     $($containerGrid).empty();
-    for (let i = 0; i < Math.pow(boxSide, 2); i++) {
-        createCell();
+    for (let row = 1; row < boxSide; row++) {
+        for (let column = 0; column < boxSide; column++) {
+            $(".cell").css("height", `${100 / boxSide}%`);
+            $(".cell").css("width", `${100 / boxSide}%`);
+            createCell()
+        }
     }
 }
 
