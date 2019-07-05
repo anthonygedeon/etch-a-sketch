@@ -5,7 +5,7 @@
 */
 
 /*--------------------------- 
-        Variables 
+    Variables 
 ---------------------------*/
 const $containerGrid = $(".containerGrid");
 let boxSide = 16;
@@ -16,7 +16,7 @@ const $randomButton = $("#random");
 const $resetButton = $("#reset");
 
 /*-- ------------------------- 
-        Buttons & inputs 
+    Buttons & input
 ---------------------------*/
 $gridLength.on("input", gridLength);
 $gradientButton.on("click", incrementOpacity);
@@ -52,7 +52,7 @@ function getRandomColors() {
     $(".cell").off("mouseenter");
     $(".cell").mouseenter((event) => {
         $(event.target).css({ 
-                            "backgroundColor": `rgb(${setRandomColors()}, ${setRandomColors()lors()}, ${setRandomColors()})`, 
+                            "backgroundColor": `rgb(${setRandomColors()}, ${setRandomColors()}, ${setRandomColors()})`, 
                             "opacity": "1" })
     });
 }
@@ -61,23 +61,23 @@ function reset(length) {
     boxSide = length;
     main();
     $(".cell").css({
-                    "opacity": "0.1",
-                    "border": "0.5px solid black",
-                    "backgroundColor": "transparent"});
+                "opacity": "0.1",
+                "border": "0.5px solid black",
+                "backgroundColor": "transparent"});
 }
 
 /*-- ------------------------- 
-        Creates the Grid 
+    Creates the Grid 
 ------------------------------*/
 function main() {
     $($containerGrid).empty();
-    for (let row = 1; row < boxSide; row++) {
+    for (let row = 0; row < boxSide; row++) {
         for (let column = 0; column < boxSide; column++) {
-            $(".cell").css("height", `${100 / boxSide}%`);
-            $(".cell").css("width", `${100 / boxSide}%`);
-            createCell()
+            createCell();
         }
     }
+    $(".cell").css("height", `${(300 / boxSide) -1}px`);
+    $(".cell").css("width", `${(300 / boxSide) -1}px`);
 }
 
 function createCell() {
