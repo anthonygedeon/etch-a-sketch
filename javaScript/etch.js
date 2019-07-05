@@ -21,7 +21,9 @@ const $resetButton = $("#reset");
 $gridLength.on("input", gridLength);
 $gradientButton.on("click", incrementOpacity);
 $randomButton.on("click", getRandomColors);
-$resetButton.on("click", reset);
+$resetButton.on("click", () => {
+    reset(boxSide);
+});
 
 /*--------------------------- 
 Corresponding to Event listeners 
@@ -76,8 +78,8 @@ function main() {
             createCell();
         }
     }
-    $(".cell").css("height", `${(300 / boxSide) -1}px`);
-    $(".cell").css("width", `${(300 / boxSide) -1}px`);
+    $(".cell").css("height", `${(300 / boxSide) - 1}px`);
+    $(".cell").css("width", `${(300 / boxSide) - 1}px`);
 }
 
 function createCell() {
