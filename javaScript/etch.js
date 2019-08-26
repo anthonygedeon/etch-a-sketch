@@ -1,91 +1,54 @@
 /* 
 *   Anthony Gedeon
-*   June 14, 2019
+*   August 26, 2019
 *   Etch-a-Sketch 
 */
 
 /*--------------------------- 
-    Variables 
+        Variables 
 ---------------------------*/
-const $containerGrid = $(".containerGrid");
-let boxSide = 16;
-
-const $gridLength = $("#gridLength");
-const $gradientButton = $("#gradient");
-const $randomButton = $("#random");
-const $resetButton = $("#reset");
-
-/*-- ------------------------- 
-    Buttons & input
----------------------------*/
-$gridLength.on("input", gridLength);
-$gradientButton.on("click", incrementOpacity);
-$randomButton.on("click", getRandomColors);
-$resetButton.on("click", () => {
-    reset(boxSide);
-});
 
 /*--------------------------- 
-Corresponding to Event listeners 
+    Function Constructors
 ---------------------------*/
-function gridLength() {
-    if (event.target.value !== 16) {
-        reset(event.target.value);
+function Grid() {
+    this.size = document.querySelector('#gridLength').value;
+    this.cell = {
+        width: '15px',
+        height: '15px',
+        borderRadius: '3px',
+        border: '0.5px solid var(--black-color)'
     }
 }
 
-function incrementOpacity() {
-    $(".cell").off("mouseenter");
-    $(".cell").mouseenter((event) => {
-        let opacity = parseFloat(event.target.style.opacity);
-        if (opacity <= 0.9) {
-            $(event.target).css({
-                                "opacity": `${opacity + 0.1}`,
-                                "backgroundColor": "#f5f5f5"});
-        }
-    });
+function Color() {
+    this.defaultColor = 'transparent';
+    this.gradient = '0.2';
 }
 
-function setRandomColors() {
-    return Math.floor((Math.random() * 256));
+/*--------------------------- 
+        Grid Prototypes
+---------------------------*/
+Grid.prototype.createGrid = function() {
+    
 }
 
-function getRandomColors() {
-    $(".cell").off("mouseenter");
-    $(".cell").mouseenter((event) => {
-        $(event.target).css({ 
-                            "backgroundColor": `rgb(${setRandomColors()}, ${setRandomColors()}, ${setRandomColors()})`, 
-                            "opacity": "1" })
-    });
+Grid.prototype.adjustCell = function() {
+
 }
 
-function reset(length) {
-    boxSide = length;
-    main();
-    $(".cell").css({
-                "opacity": "0.1",
-                "border": "0.5px solid black",
-                "backgroundColor": "transparent"});
+Grid.prototype.reset = function() {
+
 }
 
-/*-- ------------------------- 
-    Creates the Grid 
-------------------------------*/
-function main() {
-    $($containerGrid).empty();
-    for (let row = 0; row < boxSide; row++) {
-        for (let column = 0; column < boxSide; column++) {
-            createCell();
-        }
-    }
-    $(".cell").css("height", `${(300 / boxSide) - 1}px`);
-    $(".cell").css("width", `${(300 / boxSide) - 1}px`);
+/*--------------------------- 
+        Color Prototypes
+---------------------------*/
+Color.prototype.getColor = function() {
+
 }
 
-function createCell() {
-    const $cell = $('<div class="cell"></div>');
-    $cell.css("opacity", "0.1");
-    $containerGrid.append($cell);
+Color.prototype.opacity = function() {
+
 }
 
-main();
