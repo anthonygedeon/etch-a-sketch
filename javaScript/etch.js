@@ -4,82 +4,50 @@
 *   Etch-a-Sketch 
 */
 
-/*--------------------------- 
-        Variables 
----------------------------*/
+/********************
+    Variables
+********************/
 
 
+/********************
+    Functions
+********************/
 
-/*--------------------------- 
-    Function Constructors
----------------------------*/
-function Grid() {
-    this.size = parseInt(document.querySelector('#gridLength').value);
-    this.gridBox = document.querySelector('.containerGrid');
+function createGrid() {
+    var value = parseInt(document.querySelector('#gridLength').value);
+
+    for (var row = 1; row < value; row++) {
+        for (var column = 1; column < value; column++) {
+
+            var grid = document.querySelector('.containerGrid');
+            var cell = document.createElement('div');
+
+            cell.classList.add('cell');
+            grid.appendChild(cell);
+        }
+    }
 }
 
-function Color() {
-    this.defaultColor = 'transparent';
-    this.gradient = '0.2';
-    this.randomBtn = document.querySelector('#random');
-}
+createGrid();
 
-/*--------------------------- 
-        Grid Prototypes
----------------------------*/
-Grid.prototype.createGrid = function() {
-    var box = document.createElement('div');
-    box.classList.add('cell');
-    this.gridBox.appendChild(box);
-}
-
-Grid.prototype.adjustCell = function() {
-
-}
-
-Grid.prototype.reset = function() {
-    
-}
-
-/*--------------------------- 
-        Color Prototypes
----------------------------*/
-Color.prototype.getRandomColor = function() {
+function setRandomColor() {
     var letters = '0123456789ABCDEF';
     var hashColor = '#';
     for (var i = 0; i < 6; i++) {
         hashColor += letters[Math.floor(Math.random() * letters.length)];
     }
+
     return hashColor;
-
 }
 
-Color.prototype.setRandomColor = function() {
-    return box.style.backgroundColor = this.getRandomColor();
+function getRandomColor() {
+    return cell.style.backgroundColor = setRandomColor();
 }
 
-Color.prototype.opacity = function() {
+/********************
+    Event Listeners
+********************/
 
-}
-
-/*--------------------------- 
-    Prototype Inheritance
----------------------------*/
-
-
-/*--------------------------- 
-        Instantiation
----------------------------*/
-var gridSystem = new Grid();
-var colors = new Color();
-
-colors.randomBtn.addEventListener('click', function(event) {
-    colors.setRandomColor();
+document.querySelector('#random').addEventListener('click', function() {
+    
 });
-
-
-for (var i = 0; i < gridSystem.size; i++) {
-    for (var j = 0; j < gridSystem.size; j++) {
-        gridSystem.createGrid();
-    }
-}
