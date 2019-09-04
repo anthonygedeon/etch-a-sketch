@@ -15,7 +15,6 @@
 
 function createGrid() {
     var value = parseInt(document.querySelector('#gridLength').value);
-
     for (var row = 1; row < value; row++) {
         for (var column = 1; column < value; column++) {
 
@@ -30,7 +29,7 @@ function createGrid() {
 
 createGrid();
 
-function setRandomColor() {
+function randomColor() {
     var letters = '0123456789ABCDEF';
     var hashColor = '#';
     for (var i = 0; i < 6; i++) {
@@ -40,14 +39,20 @@ function setRandomColor() {
     return hashColor;
 }
 
-function getRandomColor() {
-    return cell.style.backgroundColor = setRandomColor();
-}
-
 /********************
     Event Listeners
 ********************/
 
 document.querySelector('#random').addEventListener('click', function() {
+   // 1. cells can be hovered
+    var foo = document.querySelector('.containerGrid');
+    var bar = foo.querySelectorAll('.cell');
     
+    bar.forEach(function(cell) {
+        cell.addEventListener('mouseover', function(event) {
+            cell.style.backgroundColor = randomColor();
+        });
+    });
+
+    // 2. whenever a mouse hover over a cell, it changes to a random color
 });
