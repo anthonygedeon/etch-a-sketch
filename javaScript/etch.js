@@ -12,7 +12,6 @@
 /********************
     Functions
 ********************/
-
 function createGrid() {
     var value = parseInt(document.querySelector('#gridLength').value);
     for (var row = 1; row < value; row++) {
@@ -39,20 +38,25 @@ function randomColor() {
     return hashColor;
 }
 
-/********************
-    Event Listeners
-********************/
-
-document.querySelector('#random').addEventListener('click', function() {
-   // 1. cells can be hovered
-    var foo = document.querySelector('.containerGrid');
-    var bar = foo.querySelectorAll('.cell');
+function changeColor() {
+    var grid = document.querySelector('.containerGrid');
+    var cells = grid.querySelectorAll('.cell');
     
-    bar.forEach(function(cell) {
-        cell.addEventListener('mouseover', function(event) {
+    cells.forEach(function(cell) {
+        cell.addEventListener('mouseover', function() {
             cell.style.backgroundColor = randomColor();
         });
     });
 
-    // 2. whenever a mouse hover over a cell, it changes to a random color
-});
+}
+
+function init() {
+    
+}
+
+/********************
+    Event Listeners
+********************/
+document.querySelector('#random').addEventListener('click', changeColor);
+
+// document.querySelectorAll('#reset').addEventListener('click', init);
