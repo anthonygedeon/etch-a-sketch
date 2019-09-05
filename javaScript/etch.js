@@ -1,7 +1,7 @@
 /* 
 *   Anthony Gedeon
 *   August 26, 2019
-*   Etch-a-Sketch 
+*   Etch-A-Sketch 
 */
 
 /********************
@@ -11,7 +11,7 @@
 
 /********************
     Functions
-********************/
+*********************/
 function createGrid() {
     var value = parseInt(document.querySelector('#gridLength').value);
     for (var row = 1; row < value; row++) {
@@ -47,16 +47,23 @@ function changeColor() {
             cell.style.backgroundColor = randomColor();
         });
     });
-
 }
 
-function init() {
+function shader() {
+    var op = .2;
+    var grid = document.querySelector('.containerGrid');
+    var cells = grid.querySelectorAll('.cell');
     
+    cells.forEach(function(cell) {
+        cell.addEventListener('mouseover', function(event) {
+            cell.style.cssText = 'backgroundColor: #fff; opacity:' + op++;
+        });
+    });
 }
 
 /********************
     Event Listeners
-********************/
+*********************/
 document.querySelector('#random').addEventListener('click', changeColor);
-
+document.querySelector('#shader').addEventListener('click', shader);
 // document.querySelectorAll('#reset').addEventListener('click', init);
