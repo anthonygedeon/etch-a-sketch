@@ -7,28 +7,28 @@
 /********************
     Variables
 ********************/
-
+var grid = document.querySelector('.containerGrid');
 
 /********************
     Functions
 *********************/
-function createGrid() {
+var createGrid = function() {
     var value = parseInt(document.querySelector('#gridLength').value);
     for (var row = 1; row < value; row++) {
         for (var column = 1; column < value; column++) {
 
-            var grid = document.querySelector('.containerGrid');
-            var cell = document.createElement('div');
+            grid = document.querySelector('.containerGrid');
+            cells = document.createElement('div');
 
-            cell.classList.add('cell');
-            grid.appendChild(cell);
+            cells.classList.add('cell');
+            grid.appendChild(cells);
         }
     }
 }
 
 createGrid();
 
-function randomColor() {
+var randomColor = function() {
     var letters = '0123456789ABCDEF';
     var hashColor = '#';
     for (var i = 0; i < 6; i++) {
@@ -38,10 +38,9 @@ function randomColor() {
     return hashColor;
 }
 
-function changeColor() {
-    var grid = document.querySelector('.containerGrid');
+var changeColor = function() {
     var cells = grid.querySelectorAll('.cell');
-    
+
     cells.forEach(function(cell) {
         cell.addEventListener('mouseover', function() {
             cell.style.backgroundColor = randomColor();
@@ -49,14 +48,13 @@ function changeColor() {
     });
 }
 
-function shader() {
-    var op = .2;
-    var grid = document.querySelector('.containerGrid');
+var shader = function() {
     var cells = grid.querySelectorAll('.cell');
-    
+
     cells.forEach(function(cell) {
         cell.addEventListener('mouseover', function(event) {
-            cell.style.cssText = 'backgroundColor: #fff; opacity:' + op++;
+
+            
         });
     });
 }

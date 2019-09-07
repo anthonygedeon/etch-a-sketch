@@ -49,6 +49,11 @@ body,html {
     justify-content: space-around;
 }
 
+.hoverCount {
+    opacity: 0.7;
+    background-color: #000000;
+}
+
 button,input{
     background-color: transparent;
     padding: .5em;
