@@ -29,9 +29,11 @@ body,html {
 }
 
 .containerGrid {
-    width: 350px; 
-    height: 350px;
-    border: 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 5em;
 }
 
 .cell {

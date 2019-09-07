@@ -13,23 +13,25 @@ var grid = document.querySelector('.containerGrid');
 /********************
     Functions
 *********************/
-var createGrid = function() {
-    value = parseInt(document.querySelector('#gridLength').value);
-    for (var row = 0; row < value; row++) {
-        for (var column = 0; column < value; column++) {
-
-            grid = document.querySelector('.containerGrid');
-            grid.style.cssText = `display: grid; grid-template-columns: repeat(${value}, 1fr); grid-template-rows: repeat(${value}, 1fr) border: 1px solid;`
-            cells = document.createElement('div');
-            cells.classList.add('cell');
-            cells.style.cssText = `width: ${(15/value) -1}px; height: ${(15/value) -1}px;`
-            grid.appendChild(cells);
-        }
-    }
+var createCell = function() {
+    var cell = document.createElement('div');
+    cell.classList.add('cell');
+    cell.style.opacity = 0.1;
+    grid.append(cell);
 }
 
-document.querySelector('#gridLength').addEventListener('click', createGrid);
+var createGrid = function() {
+    value = parseInt(document.querySelector('#gridLength').value);
 
+    for (var row = 0; row < value; row++) {
+        for (var column = 0; column < value; column++) {
+            createCell();
+        }
+    }
+    document.querySelector('.cell').style.cssText = `height: ${(300 / value)-1}px; width: ${(300 / value)-1}px;`
+}
+
+createGrid();
 
 var randomColor = function() {
     var letters = '0123456789ABCDEF';
@@ -64,6 +66,7 @@ var changeColor = function() {
 /********************
     Event Listeners
 *********************/
+document.querySelector('#gridLength').addEventListener('click', createGrid);
 document.querySelector('#random').addEventListener('click', changeColor);
 // document.querySelector('#shader').addEventListener('click', shader);
 // document.querySelectorAll('#reset').addEventListener('click', init);
