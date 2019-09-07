@@ -16,7 +16,6 @@ var grid = document.querySelector('.containerGrid');
 var createCell = function() {
     var cell = document.createElement('div');
     cell.classList.add('cell');
-    cell.style.opacity = 0.1;
     grid.append(cell);
 }
 
@@ -28,7 +27,11 @@ var createGrid = function() {
             createCell();
         }
     }
-    document.querySelector('.cell').style.cssText = `height: ${(300 / value)-1}px; width: ${(300 / value)-1}px;`
+
+    var cells = grid.querySelectorAll('.cell');
+    cells.forEach(function(cell) {
+        cell.style.cssText = `height: ${(300 / value)-1}px; width: ${(300 / value)-1}px;`
+    });
 }
 
 createGrid();
