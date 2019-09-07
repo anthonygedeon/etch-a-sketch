@@ -9,23 +9,27 @@
 ********************/
 var grid = document.querySelector('.containerGrid');
 
+
 /********************
     Functions
 *********************/
 var createGrid = function() {
-    var value = parseInt(document.querySelector('#gridLength').value);
-    for (var row = 1; row < value; row++) {
-        for (var column = 1; column < value; column++) {
+    value = parseInt(document.querySelector('#gridLength').value);
+    for (var row = 0; row < value; row++) {
+        for (var column = 0; column < value; column++) {
 
             grid = document.querySelector('.containerGrid');
+            grid.style.cssText = `display: grid; grid-template-columns: repeat(${value}, 1fr); grid-template-rows: repeat(${value}, 1fr) border: 1px solid;`
             cells = document.createElement('div');
             cells.classList.add('cell');
+            cells.style.cssText = `width: ${(15/value) -1}px; height: ${(15/value) -1}px;`
             grid.appendChild(cells);
         }
     }
 }
 
-createGrid();
+document.querySelector('#gridLength').addEventListener('click', createGrid);
+
 
 var randomColor = function() {
     var letters = '0123456789ABCDEF';
