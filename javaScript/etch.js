@@ -19,7 +19,6 @@ var createGrid = function() {
 
             grid = document.querySelector('.containerGrid');
             cells = document.createElement('div');
-
             cells.classList.add('cell');
             grid.appendChild(cells);
         }
@@ -48,20 +47,19 @@ var changeColor = function() {
     });
 }
 
-var shader = function() {
-    var cells = grid.querySelectorAll('.cell');
+// var shader = function() {
+//     var cells = grid.querySelectorAll('.cell');
 
-    cells.forEach(function(cell) {
-        cell.addEventListener('mouseover', function(event) {
-
+//     cells.forEach(function(cell) {
+//         cell.addEventListener('mouseover', function(event) {
             
-        });
-    });
-}
+//         });
+//     });
+// }
 
 /********************
     Event Listeners
 *********************/
 document.querySelector('#random').addEventListener('click', changeColor);
-document.querySelector('#shader').addEventListener('click', shader);
+// document.querySelector('#shader').addEventListener('click', shader);
 // document.querySelectorAll('#reset').addEventListener('click', init);
