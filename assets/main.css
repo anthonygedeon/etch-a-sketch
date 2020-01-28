@@ -11,10 +11,15 @@
     --linear-color2: #9198e5;
     --font-color: #ffffff;
     --black-color: #000000;
+
+    --row: 7;
 }
 
-body,html {
-    background: linear-gradient(190deg, var(--linear-color1),var(--linear-color2));
+html,
+body {
+    background: #1488CC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     height: 100vh;
 }
 
@@ -28,28 +33,29 @@ body,html {
     margin: 1em 0em 1em 0;
 }
 
-.containerGrid {
-    display: flex;
-    flex-wrap: wrap;
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--row), 1fr);
     width: 300px;
     height: 300px;
-    margin-bottom: 5em;
+    margin-bottom: 1em;
     overflow: hidden;
 }
 
 .cell {
-    height: 15px;
-    width: 15px;
-    border-radius: 3px;
+    /* height: 15px;
+    width: 15px; */
+    border-radius: 2px;
     border: 0.5px solid var(--black-color);
 }
 
-.options {
+.option {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-button,input{
+button,
+input {
     background-color: transparent;
     padding: .5em;
     border: 1px solid var(--font-color);
