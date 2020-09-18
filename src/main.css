@@ -36,7 +36,6 @@ body {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     height: 300px;
-    width: 250px;
     margin-bottom: 1em;
     overflow: hidden;
     margin-right: 0em;

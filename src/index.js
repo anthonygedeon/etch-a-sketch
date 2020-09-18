@@ -8,7 +8,7 @@ const genGrid = () => {
         
     const gridHeight = parseInt(getComputedStyle(grid).height);
 
-    const resizeBy = Math.floor(gridHeight / Number(inputSize.value))
+    const resizeBy = Math.ceil(gridHeight / (Number(inputSize.value) * Number(inputSize.value) ) )
 
 	for (
 		let i = 0;
@@ -24,8 +24,8 @@ const genGrid = () => {
 
 		document.querySelector('.container-grid').append(cell);
 
-		grid.style.gridTemplateColumns = `repeat(${inputSize.value}, 1fr)`;
-		grid.style.gridTemplateRows = `repeat(${inputSize.value}, 1fr)`;
+		grid.style.gridTemplateColumns = `repeat(${Number(inputSize.value)}, 1fr)`;
+		grid.style.gridTemplateRows = `repeat(${Number(inputSize.value)}, 1fr)`;
 	}
 };
 
